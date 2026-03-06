@@ -30,7 +30,8 @@ const ISSUE_OPTIONS = [
   "Other",
 ] as const;
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwtNIxkEKv8Gm2SbLxT-df4DKTmN67vzD-ZUOAVLKfOA5cwCGoSuS74xvVbLFW71bMS/exec";
+/** Replace with your Google Apps Script web app URL (deploy as web app, copy URL). */
+const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
 const PRODUCT_IMAGE = "/watch-product.png";
 const PRODUCT_NAME = "Seiko Presage Cocktail Time";
 const PRODUCT_META = "40MM | Automatic | Navy Dial";
@@ -190,13 +191,16 @@ export default function WatchoSurvey() {
     setSubmitting(true);
     setErrorMsg("");
     setShowErrorScreen(false);
+    const isDemo = SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
     try {
-      const fd = new FormData();
-      Object.entries(data).forEach(([k, v]) => fd.append(k, String(v)));
-    
-      // send the form to your Apps Script web app
-      await fetch(SCRIPT_URL, { method: "POST", body: fd, mode: "no-cors" });
-    
+      if (isDemo) {
+        await new Promise((r) => setTimeout(r, 800));
+        console.log("Survey data (demo mode – set SCRIPT_URL to your web app):", data);
+      } else {
+        const fd = new FormData();
+        Object.entries(data).forEach(([k, v]) => fd.append(k, String(v)));
+        await fetch(SCRIPT_URL, { method: "POST", body: fd, mode: "no-cors" });
+      }
       setShowSuccess(true);
     } catch {
       setShowErrorScreen(true);

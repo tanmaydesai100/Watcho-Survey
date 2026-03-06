@@ -1,7 +1,8 @@
 {
-  "name": "my-react-app",
+  "name": "watcho-survey",
+  "description": "Post-purchase feedback survey for WATCHO – The Watch & Clock Shop",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,6 +10,16 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "keywords": [
+    "watcho",
+    "survey",
+    "post-purchase",
+    "feedback",
+    "react",
+    "vite"
+  ],
+  "author": "WATCHO",
+  "license": "UNLICENSED",
   "dependencies": {
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -27,5 +38,8 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.48.0",
     "vite": "^7.3.1"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
