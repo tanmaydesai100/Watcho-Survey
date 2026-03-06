@@ -1,0 +1,253 @@
+/**
+ * WATCHO Design System
+ * Extracted from watcho.co.uk — fonts, colors, typography, spacing, and theme tokens.
+ * Import this file in your app (e.g. main.tsx or App.tsx) to apply the same styles to new pages.
+ *
+ * Usage:
+ *   import './design-system.css';
+ *   Then use CSS variables (var(--watcho-*)) or utility classes (.watcho-*) in your components.
+ */
+
+/* ==========================================================================
+   FONTS (load in index.html if not already)
+   ========================================================================== */
+/*
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+*/
+
+/* ==========================================================================
+   THEME TOKENS (CSS Custom Properties)
+   ========================================================================== */
+:root {
+  /* ----- Brand colors ----- */
+  --watcho-red: #c41e3a;
+  --watcho-red-dark: #a01830;
+  --watcho-red-light: #f5e6e9;
+  --watcho-navy: #1a1a2e;
+  --watcho-navy-muted: rgba(26, 26, 46, 0.85);
+
+  /* ----- Neutrals ----- */
+  --watcho-charcoal: #333333;
+  --watcho-mid-grey: #666666;
+  --watcho-light-grey: #999999;
+  --watcho-border: #e0e0e0;
+  --watcho-white: #ffffff;
+  --watcho-bg-soft: #f8f8f8;
+  --watcho-bg-warm: #fdf9f9;
+
+  /* ----- Semantic ----- */
+  --watcho-success-bg: #e8f5e9;
+  --watcho-success-text: #2e7d32;
+
+  /* ----- Typography: font families ----- */
+  --watcho-font-sans: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --watcho-font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+
+  /* ----- Typography: scale ----- */
+  --watcho-text-xs: 0.6875rem;   /* 11px */
+  --watcho-text-sm: 0.75rem;    /* 12px */
+  --watcho-text-base: 0.875rem;  /* 14px */
+  --watcho-text-md: 1rem;       /* 16px */
+  --watcho-text-lg: 1.125rem;   /* 18px */
+  --watcho-text-xl: 1.1875rem;   /* 19px */
+  --watcho-text-2xl: 1.375rem;  /* 22px */
+  --watcho-text-3xl: 1.625rem;  /* 26px */
+  --watcho-text-4xl: 2.25rem;   /* 36px */
+  --watcho-text-hero: clamp(2rem, 5vw, 3.5rem); /* 32px–56px */
+
+  /* ----- Typography: weight ----- */
+  --watcho-font-light: 300;
+  --watcho-font-regular: 400;
+  --watcho-font-medium: 600;
+  --watcho-font-bold: 700;
+
+  /* ----- Typography: letter-spacing ----- */
+  --watcho-tracking-tight: 0.02em;
+  --watcho-tracking-normal: 0.04em;
+  --watcho-tracking-wide: 0.06em;
+  --watcho-tracking-wider: 0.1em;
+  --watcho-tracking-widest: 0.22em;
+
+  /* ----- Line height ----- */
+  --watcho-leading-tight: 1.18;
+  --watcho-leading-snug: 1.3;
+  --watcho-leading-normal: 1.5;
+  --watcho-leading-relaxed: 1.6;
+  --watcho-leading-loose: 1.7;
+
+  /* ----- Spacing (scale) ----- */
+  --watcho-space-0: 0;
+  --watcho-space-1: 0.25rem;   /* 4px */
+  --watcho-space-2: 0.5rem;   /* 8px */
+  --watcho-space-3: 0.75rem;   /* 12px */
+  --watcho-space-4: 1rem;     /* 16px */
+  --watcho-space-5: 1.25rem;  /* 20px */
+  --watcho-space-6: 1.5rem;   /* 24px */
+  --watcho-space-8: 2rem;     /* 32px */
+  --watcho-space-10: 2.5rem;  /* 40px */
+  --watcho-space-12: 3rem;    /* 48px */
+  --watcho-space-14: 3.5rem;   /* 56px */
+  --watcho-space-16: 4rem;    /* 64px */
+  --watcho-space-20: 5rem;    /* 80px */
+
+  /* ----- Radii ----- */
+  --watcho-radius-sm: 3px;
+  --watcho-radius-md: 4px;
+  --watcho-radius-lg: 6px;
+  --watcho-radius-xl: 20px;
+  --watcho-radius-full: 50%;
+
+  /* ----- Shadows ----- */
+  --watcho-shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --watcho-shadow-md: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --watcho-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.09);
+
+  /* ----- Transitions ----- */
+  --watcho-transition-fast: 0.15s ease;
+  --watcho-transition-base: 0.2s ease;
+  --watcho-transition-slow: 0.4s ease;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY STYLES (utility classes)
+   ========================================================================== */
+.watcho-font-sans {
+  font-family: var(--watcho-font-sans);
+}
+
+.watcho-font-serif {
+  font-family: var(--watcho-font-serif);
+}
+
+.watcho-text-hero {
+  font-family: var(--watcho-font-serif);
+  font-size: var(--watcho-text-hero);
+  font-weight: var(--watcho-font-regular);
+  color: var(--watcho-navy);
+  line-height: var(--watcho-leading-tight);
+}
+
+.watcho-text-display {
+  font-family: var(--watcho-font-serif);
+  font-size: var(--watcho-text-3xl);
+  font-weight: var(--watcho-font-medium);
+  color: var(--watcho-navy);
+  letter-spacing: var(--watcho-tracking-normal);
+}
+
+.watcho-text-title {
+  font-family: var(--watcho-font-serif);
+  font-size: var(--watcho-text-xl);
+  font-weight: var(--watcho-font-regular);
+  color: var(--watcho-navy);
+  line-height: var(--watcho-leading-snug);
+}
+
+.watcho-text-label {
+  font-size: var(--watcho-text-sm);
+  font-weight: var(--watcho-font-bold);
+  letter-spacing: var(--watcho-tracking-widest);
+  text-transform: uppercase;
+  color: var(--watcho-red);
+}
+
+.watcho-text-body {
+  font-family: var(--watcho-font-sans);
+  font-size: var(--watcho-text-base);
+  font-weight: var(--watcho-font-regular);
+  line-height: var(--watcho-leading-relaxed);
+  color: var(--watcho-charcoal);
+}
+
+.watcho-text-caption {
+  font-size: var(--watcho-text-sm);
+  color: var(--watcho-light-grey);
+}
+
+.watcho-text-meta {
+  font-size: var(--watcho-text-xs);
+  letter-spacing: var(--watcho-tracking-wider);
+  text-transform: uppercase;
+  color: var(--watcho-mid-grey);
+}
+
+/* ==========================================================================
+   COLOR UTILITIES
+   ========================================================================== */
+.watcho-bg-red { background-color: var(--watcho-red); }
+.watcho-bg-red-light { background-color: var(--watcho-red-light); }
+.watcho-bg-navy { background-color: var(--watcho-navy); }
+.watcho-bg-white { background-color: var(--watcho-white); }
+.watcho-bg-soft { background-color: var(--watcho-bg-soft); }
+.watcho-bg-warm { background-color: var(--watcho-bg-warm); }
+
+.watcho-text-red { color: var(--watcho-red); }
+.watcho-text-navy { color: var(--watcho-navy); }
+.watcho-text-charcoal { color: var(--watcho-charcoal); }
+.watcho-text-mid { color: var(--watcho-mid-grey); }
+.watcho-text-muted { color: var(--watcho-light-grey); }
+
+.watcho-border { border-color: var(--watcho-border); }
+.watcho-border-red { border-color: var(--watcho-red); }
+
+/* ==========================================================================
+   SPACING UTILITIES (margin / padding)
+   ========================================================================== */
+.watcho-p-4 { padding: var(--watcho-space-4); }
+.watcho-p-6 { padding: var(--watcho-space-6); }
+.watcho-p-8 { padding: var(--watcho-space-8); }
+.watcho-py-6 { padding-top: var(--watcho-space-6); padding-bottom: var(--watcho-space-6); }
+.watcho-py-8 { padding-top: var(--watcho-space-8); padding-bottom: var(--watcho-space-8); }
+.watcho-mb-4 { margin-bottom: var(--watcho-space-4); }
+.watcho-mb-6 { margin-bottom: var(--watcho-space-6); }
+.watcho-mb-8 { margin-bottom: var(--watcho-space-8); }
+
+/* ==========================================================================
+   COMPONENT TOKENS (for buttons, cards, inputs)
+   ========================================================================== */
+.watcho-btn-primary {
+  font-family: var(--watcho-font-sans);
+  font-size: var(--watcho-text-sm);
+  font-weight: var(--watcho-font-bold);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--watcho-white);
+  background-color: var(--watcho-red);
+  border: none;
+  border-radius: var(--watcho-radius-sm);
+  padding: 14px 40px;
+  cursor: pointer;
+  transition: background-color var(--watcho-transition-base), transform 0.1s ease;
+}
+
+.watcho-btn-primary:hover {
+  background-color: var(--watcho-red-dark);
+  transform: translateY(-1px);
+}
+
+.watcho-card {
+  background: var(--watcho-white);
+  border: 1px solid var(--watcho-border);
+  border-radius: var(--watcho-radius-md);
+  padding: 30px 34px;
+  box-shadow: var(--watcho-shadow-sm);
+}
+
+.watcho-input {
+  font-family: var(--watcho-font-sans);
+  font-size: var(--watcho-text-base);
+  color: var(--watcho-charcoal);
+  border: 1.5px solid var(--watcho-border);
+  border-radius: var(--watcho-radius-sm);
+  padding: 14px 18px;
+  background: var(--watcho-bg-soft);
+  transition: border-color var(--watcho-transition-base), box-shadow var(--watcho-transition-base);
+}
+
+.watcho-input:focus {
+  outline: none;
+  border-color: var(--watcho-red);
+  box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.08);
+  background: var(--watcho-white);
+}

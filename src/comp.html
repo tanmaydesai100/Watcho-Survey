@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WATCHO · Share Your Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --red: #c41e3a;
+        --red-dark: #a01830;
+        --red-light: #f5e6e9;
+        --navy: #1a1a2e;
+        --charcoal: #333333;
+        --mid-grey: #666666;
+        --light-grey: #999999;
+        --border: #e0e0e0;
+        --bg: #ffffff;
+        --bg-soft: #f8f8f8;
+        --bg-warm: #fdf9f9;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--charcoal);
+        font-family: "Lato", sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      /* TOP BAR */
+      .topbar {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.85);
+        text-align: center;
+        padding: 9px 24px;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        font-weight: 300;
+      }
+
+      /* HEADER */
+      .header {
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        padding: 0 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+      }
+      .logo-name {
+        font-family: "Playfair Display", serif;
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--navy);
+        letter-spacing: 0.04em;
+        line-height: 1;
+      }
+      .logo-tagline {
+        font-size: 9px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--mid-grey);
+        margin-top: 3px;
+      }
+      .header-pill {
+        background: var(--red-light);
+        color: var(--red);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 6px 14px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .header-pill::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        background: var(--red);
+        border-radius: 50%;
+        animation: blink 1.5s infinite;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+
+      /* HERO */
+      .hero {
+        background: var(--bg-warm);
+        border-bottom: 3px solid var(--red);
+        padding: 60px 48px 54px;
+        text-align: center;
+        animation: fadeDown 0.6s ease both;
+      }
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--red);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+      .hero-eyebrow::before,
+      .hero-eyebrow::after {
+        content: "";
+        display: block;
+        width: 32px;
+        height: 1px;
+        background: var(--red);
+        opacity: 0.5;
+      }
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(32px, 5vw, 56px);
+        font-weight: 400;
+        color: var(--navy);
+        line-height: 1.18;
+        margin-bottom: 14px;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--red);
+      }
+      .hero-sub {
+        font-size: 15px;
+        color: var(--mid-grey);
+        font-weight: 300;
+        max-width: 500px;
+        margin: 0 auto 32px;
+      }
+      .trust-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        flex-wrap: wrap;
+      }
+      .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 12px;
+        color: var(--mid-grey);
+      }
+      .trust-icon {
+        width: 18px;
+        height: 18px;
+        background: var(--red);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 9px;
+        color: #fff;
+        flex-shrink: 0;
+      }
+
+      /* CONTAINER */
+      .container {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* ORDER CARD */
+      .order-wrap {
+        padding: 40px 24px 0;
+        animation: fadeUp 0.6s 0.1s ease both;
+      }
+      .order-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--red);
+        border-radius: 4px;
+        padding: 22px 28px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+      .order-img {
+        width: 54px;
+        height: 54px;
+        background: var(--bg-soft);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        border: 1px solid var(--border);
+        flex-shrink: 0;
+      }
+      .order-info {
+        flex: 1;
+        min-width: 0;
+      }
+      .order-tag {
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--red);
+        font-weight: 700;
+        margin-bottom: 3px;
+      }
+      .order-name {
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        color: var(--navy);
+        margin-bottom: 2px;
+      }
+      .order-meta {
+        font-size: 12px;
+        color: var(--light-grey);
+      }
+      .delivered-badge {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        background: #e8f5e9;
+        color: #2e7d32;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        padding: 6px 14px;
+        border-radius: 20px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      /* PROGRESS */
+      .progress-wrap {
+        padding: 32px 24px 0;
+      }
+      .progress-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .progress-lbl {
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--mid-grey);
+        font-weight: 700;
+      }
+      .progress-count {
+        font-size: 12px;
+        color: var(--red);
+        font-weight: 700;
+      }
+      .progress-track {
+        height: 4px;
+        background: var(--border);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--red-dark), var(--red));
+        width: 0%;
+        transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 2px;
+      }
+
+      /* SURVEY */
+      .survey-wrap {
+        padding: 32px 24px 80px;
+      }
+
+      .q-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 30px 34px;
+        margin-bottom: 18px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.2s;
+      }
+      .q-card.visible {
+        opacity: 1;
+        transform: none;
+      }
+      .q-card:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.09);
+      }
+
+      .q-head {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        margin-bottom: 20px;
+      }
+      .q-num {
+        background: var(--red);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .q-text {
+        flex: 1;
+      }
+      .q-label {
+        font-family: "Playfair Display", serif;
+        font-size: 19px;
+        color: var(--navy);
+        line-height: 1.3;
+        margin-bottom: 4px;
+      }
+      .q-hint {
+        font-size: 12px;
+        color: var(--light-grey);
+      }
+
+      /* STARS */
+      .stars {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+      }
+      .star {
+        cursor: pointer;
+        padding: 5px;
+        transition: transform 0.15s;
+      }
+      .star:hover {
+        transform: scale(1.18);
+      }
+      .star svg {
+        width: 30px;
+        height: 30px;
+        display: block;
+      }
+      .star svg path {
+        fill: #e5e5e5;
+        stroke: #e5e5e5;
+        transition: fill 0.15s, stroke 0.15s;
+      }
+      .star.active svg path,
+      .star.hovered svg path {
+        fill: #f5a623;
+        stroke: #f5a623;
+      }
+      .star-label {
+        margin-left: 10px;
+        font-size: 13px;
+        color: var(--mid-grey);
+        font-style: italic;
+        min-width: 90px;
+      }
+
+      /* PILLS */
+      .pill-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+      }
+      .pill {
+        padding: 9px 18px;
+        border: 1.5px solid var(--border);
+        border-radius: 3px;
+        font-size: 13px;
+        color: var(--charcoal);
+        cursor: pointer;
+        transition: all 0.18s ease;
+        background: #fff;
+        user-select: none;
+      }
+      .pill:hover {
+        border-color: var(--red);
+        color: var(--red);
+        background: var(--red-light);
+      }
+      .pill.selected {
+        border-color: var(--red);
+        color: var(--red);
+        background: var(--red-light);
+        font-weight: 700;
+      }
+      .pill.selected::after {
+        content: " ✓";
+      }
+
+      /* NPS */
+      .nps-labels {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      .nps-lbl {
+        font-size: 11px;
+        color: var(--light-grey);
+        letter-spacing: 0.05em;
+      }
+      .nps-row {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+      .nps-btn {
+        width: 48px;
+        height: 48px;
+        border: 1.5px solid var(--border);
+        border-radius: 3px;
+        background: #fff;
+        color: var(--charcoal);
+        font-family: "Lato", sans-serif;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.18s;
+      }
+      .nps-btn:hover {
+        border-color: var(--red);
+        color: var(--red);
+        background: var(--red-light);
+      }
+      .nps-btn.selected {
+        background: var(--red);
+        border-color: var(--red);
+        color: #fff;
+        font-weight: 700;
+      }
+
+      /* TEXTAREA */
+      .survey-textarea {
+        width: 100%;
+        border: 1.5px solid var(--border);
+        border-radius: 3px;
+        padding: 14px 18px;
+        font-family: "Lato", sans-serif;
+        font-size: 14px;
+        color: var(--charcoal);
+        resize: vertical;
+        min-height: 110px;
+        outline: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        background: var(--bg-soft);
+        line-height: 1.7;
+      }
+      .survey-textarea::placeholder {
+        color: #bbbbbb;
+      }
+      .survey-textarea:focus {
+        border-color: var(--red);
+        box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.08);
+        background: #fff;
+      }
+
+      /* SUBMIT */
+      .submit-card {
+        background: var(--bg-soft);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 26px 34px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .submit-note {
+        font-size: 12px;
+        color: var(--light-grey);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .submit-btn {
+        background: var(--red);
+        color: #fff;
+        border: none;
+        padding: 14px 40px;
+        font-family: "Lato", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.1s;
+      }
+      .submit-btn:hover {
+        background: var(--red-dark);
+        transform: translateY(-1px);
+      }
+      .submit-btn:active {
+        transform: none;
+      }
+      .submit-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        transform: none;
+      }
+      .status-msg {
+        text-align: center;
+        font-size: 13px;
+        color: var(--red);
+        margin-top: 12px;
+        display: none;
+      }
+
+      /* FOOTER */
+      .footer {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.5);
+        text-align: center;
+        padding: 24px;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+      }
+      .footer strong {
+        color: #fff;
+      }
+
+      /* SUCCESS */
+      .success-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(26, 26, 46, 0.9);
+        z-index: 999;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .success-overlay.show {
+        display: flex;
+        animation: fadeIn 0.4s ease;
+      }
+      .success-box {
+        background: #fff;
+        border-radius: 6px;
+        padding: 52px 44px;
+        text-align: center;
+        max-width: 460px;
+        width: 100%;
+        animation: scaleIn 0.4s 0.1s ease both;
+      }
+      .success-icon {
+        width: 64px;
+        height: 64px;
+        background: var(--red);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 22px;
+        font-size: 26px;
+        color: #fff;
+      }
+      .success-title {
+        font-family: "Playfair Display", serif;
+        font-size: 36px;
+        color: var(--navy);
+        margin-bottom: 8px;
+      }
+      .success-divider {
+        width: 44px;
+        height: 2px;
+        background: var(--red);
+        margin: 18px auto;
+        border-radius: 1px;
+      }
+      .success-msg {
+        font-size: 14px;
+        color: var(--mid-grey);
+        line-height: 1.7;
+        margin-bottom: 22px;
+      }
+      .discount-box {
+        background: var(--red-light);
+        border: 1.5px dashed var(--red);
+        border-radius: 4px;
+        padding: 14px 24px;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--red);
+        letter-spacing: 0.15em;
+        margin-bottom: 8px;
+      }
+      .discount-note {
+        font-size: 12px;
+        color: var(--light-grey);
+      }
+
+      /* ANIMATIONS */
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-12px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .header {
+          padding: 0 20px;
+        }
+        .hero {
+          padding: 40px 20px 36px;
+        }
+        .order-card {
+          flex-wrap: wrap;
+        }
+        .q-card {
+          padding: 22px 18px;
+        }
+        .nps-btn {
+          width: 40px;
+          height: 40px;
+          font-size: 12px;
+        }
+        .submit-card {
+          flex-direction: column;
+        }
+        .trust-row {
+          gap: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      🚚 Free UK Delivery &nbsp;·&nbsp; ✓ Authorised Dealer &nbsp;·&nbsp; ★
+      Complimentary Extended Warranty &nbsp;·&nbsp; 📞 01908 983 500
+    </div>
+
+    <header class="header">
+      <div>
+        <div class="logo-name">WATCHO</div>
+        <div class="logo-tagline">Watches &amp; Jewellery Since 1979</div>
+      </div>
+      <div class="header-pill">Live Survey</div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-eyebrow">Post-Purchase Survey</div>
+      <h1>How was your <em>WATCHO</em><br />experience?</h1>
+      <p class="hero-sub">
+        We value every customer's voice. Your feedback helps us continue to
+        improve and deliver the service you deserve.
+      </p>
+      <div class="trust-row">
+        <div class="trust-item">
+          <div class="trust-icon">🔒</div>
+          Confidential
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">⏱</div>
+          2 minutes
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">🎁</div>
+          Reward inside
+        </div>
+      </div>
+    </section>
+
+    <div class="container order-wrap">
+      <div class="order-card">
+        <div class="order-img">⌚</div>
+        <div class="order-info">
+          <div class="order-tag">Your Recent Purchase</div>
+          <div class="order-name">Seiko Presage Cocktail Time</div>
+          <div class="order-meta">
+            Order #WTC-28421 &nbsp;·&nbsp; Delivered 22 Feb 2026
+          </div>
+        </div>
+        <div class="delivered-badge">✓ Delivered</div>
+      </div>
+    </div>
+
+    <div class="container progress-wrap">
+      <div class="progress-head">
+        <div class="progress-lbl">Your Progress</div>
+        <div class="progress-count" id="progressCount">0 of 6 answered</div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <div class="container survey-wrap">
+      <!-- Q1 -->
+      <div class="q-card" id="q1">
+        <div class="q-head">
+          <div class="q-num">1</div>
+          <div class="q-text">
+            <div class="q-label">
+              Overall, how would you rate your WATCHO experience?
+            </div>
+            <div class="q-hint">
+              From browsing to delivery — your overall impression
+            </div>
+          </div>
+        </div>
+        <div class="stars" id="starsOverall">
+          <div
+            class="star"
+            onclick="rateStar('starsOverall','rating_overall',1)"
+            onmouseenter="hoverStar('starsOverall',1)"
+            onmouseleave="resetHover('starsOverall')"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+          </div>
+          <div
+            class="star"
+            onclick="rateStar('starsOverall','rating_overall',2)"
+            onmouseenter="hoverStar('starsOverall',2)"
+            onmouseleave="resetHover('starsOverall')"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+          </div>
+          <div
+            class="star"
+            onclick="rateStar('starsOverall','rating_overall',3)"
+            onmouseenter="hoverStar('starsOverall',3)"
+            onmouseleave="resetHover('starsOverall')"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+          </div>
+          <div
+            class="star"
+            onclick="rateStar('starsOverall','rating_overall',4)"
+            onmouseenter="hoverStar('starsOverall',4)"
+            onmouseleave="resetHover('starsOverall')"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+          </div>
+          <div
+            class="star"
+            onclick="rateStar('starsOverall','rating_overall',5)"
+            onmouseenter="hoverStar('starsOverall',5)"
+            onmouseleave="resetHover('starsOverall')"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+          </div>
+          <span class="star-label" id="overallLabel">Tap to rate</span>
+        </div>
+        <input type="hidden" id="rating_overall" />
+      </div>
+
+      <!-- Q2 -->
+      <div class="q-card" id="q2">
+        <div class="q-head">
+          <div class="q-num">2</div>
+          <div class="q-text">
+            <div class="q-label">
+              How satisfied are you with the product itself?
+            </div>
+            <div class="q-hint">
+              Quality, finish, and how it matched the website description
+            </div>
+          </div>
+        </div>
+        <div class="stars" id="starsProduct">
+          <div
+            class="star"
+            onclick="rateStar('starsProduct','rating_product',1)"
+            onmouseenter="hoverStar('starsProduct',1)"
+            onmouseleave="resetHover('starsProduct')"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+          </div>
+          <div
+            class="star"
+            onclick="rateStar('starsProduct','rating_product',2)"
+            onmouseenter="hoverStar('starsProduct',2)"
+            onmouseleave="resetHover('starsProduct')"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+          </div>
+          <div
+            class="star"
+            onclick="rateStar('starsProduct','rating_product',3)"
+            onmouseenter="hoverStar('starsProduct',3)"
+            onmouseleave="resetHover('starsProduct')"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+          </div>
+          <div
+            class="star"
+            onclick="rateStar('starsProduct','rating_product',4)"
+            onmouseenter="hoverStar('starsProduct',4)"
+            onmouseleave="resetHover('starsProduct')"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+          </div>
+          <div
+            class="star"
+            onclick="rateStar('starsProduct','rating_product',5)"
+            onmouseenter="hoverStar('starsProduct',5)"
+            onmouseleave="resetHover('starsProduct')"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+          </div>
+          <span class="star-label" id="productLabel">Tap to rate</span>
+        </div>
+        <input type="hidden" id="rating_product" />
+      </div>
+
+      <!-- Q3 -->
+      <div class="q-card" id="q3">
+        <div class="q-head">
+          <div class="q-num">3</div>
+          <div class="q-text">
+            <div class="q-label">How was your delivery experience?</div>
+            <div class="q-hint">
+              Timing, packaging quality, and condition on arrival
+            </div>
+          </div>
+        </div>
+        <div class="pill-group" id="deliveryGroup">
+          <div
+            class="pill"
+            onclick="selectPill('deliveryGroup','delivery',this,'Arrived early')"
+          >
+            Arrived early
+          </div>
+          <div
+            class="pill"
+            onclick="selectPill('deliveryGroup','delivery',this,'On time')"
+          >
+            On time
+          </div>
+          <div
+            class="pill"
+            onclick="selectPill('deliveryGroup','delivery',this,'Slightly delayed')"
+          >
+            Slightly delayed
+          </div>
+          <div
+            class="pill"
+            onclick="selectPill('deliveryGroup','delivery',this,'Significantly delayed')"
+          >
+            Significantly delayed
+          </div>
+          <div
+            class="pill"
+            onclick="selectPill('deliveryGroup','delivery',this,'Issue with delivery')"
+          >
+            Issue with delivery
+          </div>
+        </div>
+        <input type="hidden" id="delivery" />
+      </div>
+
+      <!-- Q4 -->
+      <div class="q-card" id="q4">
+        <div class="q-head">
+          <div class="q-num">4</div>
+          <div class="q-text">
+            <div class="q-label">
+              What stood out most about your experience?
+            </div>
+            <div class="q-hint">Select all that apply</div>
+          </div>
+        </div>
+        <div class="pill-group" id="standoutGroup">
+          <div class="pill multi" onclick="togglePill(this,'standoutGroup')">
+            Product quality
+          </div>
+          <div class="pill multi" onclick="togglePill(this,'standoutGroup')">
+            Website ease of use
+          </div>
+          <div class="pill multi" onclick="togglePill(this,'standoutGroup')">
+            Price &amp; value
+          </div>
+          <div class="pill multi" onclick="togglePill(this,'standoutGroup')">
+            Packaging &amp; unboxing
+          </div>
+          <div class="pill multi" onclick="togglePill(this,'standoutGroup')">
+            Customer service
+          </div>
+          <div class="pill multi" onclick="togglePill(this,'standoutGroup')">
+            Delivery speed
+          </div>
+          <div class="pill multi" onclick="togglePill(this,'standoutGroup')">
+            Brand trust
+          </div>
+          <div class="pill multi" onclick="togglePill(this,'standoutGroup')">
+            Extended warranty
+          </div>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="q-card" id="q5">
+        <div class="q-head">
+          <div class="q-num">5</div>
+          <div class="q-text">
+            <div class="q-label">
+              How likely are you to recommend WATCHO to someone you know?
+            </div>
+            <div class="q-hint">
+              0 = Not at all likely &nbsp;·&nbsp; 10 = Extremely likely
+            </div>
+          </div>
+        </div>
+        <div class="nps-labels">
+          <span class="nps-lbl">Not likely</span>
+          <span class="nps-lbl">Extremely likely</span>
+        </div>
+        <div class="nps-row" id="npsGroup">
+          <button type="button" class="nps-btn" onclick="selectNPS(this,0)">
+            0
+          </button>
+          <button type="button" class="nps-btn" onclick="selectNPS(this,1)">
+            1
+          </button>
+          <button type="button" class="nps-btn" onclick="selectNPS(this,2)">
+            2
+          </button>
+          <button type="button" class="nps-btn" onclick="selectNPS(this,3)">
+            3
+          </button>
+          <button type="button" class="nps-btn" onclick="selectNPS(this,4)">
+            4
+          </button>
+          <button type="button" class="nps-btn" onclick="selectNPS(this,5)">
+            5
+          </button>
+          <button type="button" class="nps-btn" onclick="selectNPS(this,6)">
+            6
+          </button>
+          <button type="button" class="nps-btn" onclick="selectNPS(this,7)">
+            7
+          </button>
+          <button type="button" class="nps-btn" onclick="selectNPS(this,8)">
+            8
+          </button>
+          <button type="button" class="nps-btn" onclick="selectNPS(this,9)">
+            9
+          </button>
+          <button type="button" class="nps-btn" onclick="selectNPS(this,10)">
+            10
+          </button>
+        </div>
+        <input type="hidden" id="nps" />
+      </div>
+
+      <!-- Q6 -->
+      <div class="q-card" id="q6">
+        <div class="q-head">
+          <div class="q-num">6</div>
+          <div class="q-text">
+            <div class="q-label">Any final thoughts you'd like to share?</div>
+            <div class="q-hint">
+              A compliment, concern, or suggestion — all are welcome
+            </div>
+          </div>
+        </div>
+        <textarea
+          class="survey-textarea"
+          id="comments"
+          placeholder="Tell us about your experience in your own words..."
+          oninput="updateProgress()"
+        ></textarea>
+      </div>
+
+      <!-- Submit -->
+      <div class="submit-card">
+        <div class="submit-note">
+          🔒 Your responses are encrypted and completely confidential
+        </div>
+        <button class="submit-btn" id="submitBtn" onclick="handleSubmit()">
+          Submit Feedback
+        </button>
+      </div>
+      <div class="status-msg" id="statusMsg"></div>
+    </div>
+
+    <footer class="footer">
+      <strong>WATCHO</strong> &nbsp;·&nbsp; 12 Deer Walk, Milton Keynes, MK9 3AB
+      &nbsp;·&nbsp; +44 1908 983 500 &nbsp;·&nbsp; watcho.co.uk
+    </footer>
+
+    <div class="success-overlay" id="successOverlay">
+      <div class="success-box">
+        <div class="success-icon">✓</div>
+        <div class="success-title">Thank You!</div>
+        <div class="success-divider"></div>
+        <p class="success-msg">
+          Your feedback has been received and shared with our team. As a token
+          of our appreciation, here's an exclusive discount for your next order:
+        </p>
+        <div class="discount-box">WATCHO10THANKS</div>
+        <div class="discount-note">
+          10% off your next purchase · Valid for 30 days
+        </div>
+        <div class="success-divider"></div>
+        <p class="success-msg" style="font-size: 12px; margin: 0">
+          Thank you for trusting WATCHO. We look forward to serving you again.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const ratings = {};
+      const state = { nps: null };
+      const starLabels = ["", "Poor", "Fair", "Good", "Very Good", "Excellent"];
+
+      document.querySelectorAll(".q-card").forEach((el, i) => {
+        setTimeout(() => el.classList.add("visible"), 120 + i * 90);
+      });
+
+      function updateProgress() {
+        let c = 0;
+        if (ratings["starsOverall"]) c++;
+        if (ratings["starsProduct"]) c++;
+        if (document.getElementById("delivery").value) c++;
+        if (document.querySelectorAll("#standoutGroup .pill.selected").length)
+          c++;
+        if (state.nps !== null) c++;
+        if (document.getElementById("comments").value.trim()) c++;
+        const pct = Math.round((c / 6) * 100);
+        document.getElementById("progressFill").style.width = pct + "%";
+        document.getElementById("progressCount").textContent =
+          c + " of 6 answered";
+      }
+
+      function rateStar(groupId, fieldId, val) {
+        ratings[groupId] = val;
+        document.getElementById(fieldId).value = val;
+        document
+          .querySelectorAll("#" + groupId + " .star")
+          .forEach((s, i) => s.classList.toggle("active", i < val));
+        const lblMap = {
+          starsOverall: "overallLabel",
+          starsProduct: "productLabel",
+        };
+        if (lblMap[groupId])
+          document.getElementById(lblMap[groupId]).textContent =
+            starLabels[val];
+        updateProgress();
+      }
+
+      function hoverStar(groupId, val) {
+        const cur = ratings[groupId] || 0;
+        document.querySelectorAll("#" + groupId + " .star").forEach((s, i) => {
+          s.classList.toggle("hovered", i < val && i >= cur);
+          s.classList.toggle("active", i < cur);
+        });
+      }
+
+      function resetHover(groupId) {
+        const cur = ratings[groupId] || 0;
+        document.querySelectorAll("#" + groupId + " .star").forEach((s, i) => {
+          s.classList.remove("hovered");
+          s.classList.toggle("active", i < cur);
+        });
+      }
+
+      function selectPill(groupId, fieldId, el, value) {
+        document
+          .querySelectorAll("#" + groupId + " .pill")
+          .forEach((p) => p.classList.remove("selected"));
+        el.classList.add("selected");
+        document.getElementById(fieldId).value = value;
+        updateProgress();
+      }
+
+      function togglePill(el, groupId) {
+        el.classList.toggle("selected");
+        updateProgress();
+      }
+
+      function selectNPS(el, val) {
+        document
+          .querySelectorAll("#npsGroup .nps-btn")
+          .forEach((b) => b.classList.remove("selected"));
+        el.classList.add("selected");
+        state.nps = val;
+        document.getElementById("nps").value = val;
+        updateProgress();
+      }
+
+      async function handleSubmit() {
+        const btn = document.getElementById("submitBtn");
+        const statusMsg = document.getElementById("statusMsg");
+        const data = {
+          timestamp: new Date().toLocaleString("en-GB"),
+          order_id: "WTC-28421",
+          product: "Seiko Presage Cocktail Time",
+          overall_rating:
+            document.getElementById("rating_overall").value || "Not answered",
+          product_rating:
+            document.getElementById("rating_product").value || "Not answered",
+          delivery: document.getElementById("delivery").value || "Not answered",
+          standout:
+            Array.from(
+              document.querySelectorAll("#standoutGroup .pill.selected")
+            )
+              .map((p) => p.textContent.replace("✓", "").trim())
+              .join(", ") || "None",
+          nps:
+            document.getElementById("nps").value !== ""
+              ? document.getElementById("nps").value
+              : "Not answered",
+          comments:
+            document.getElementById("comments").value.trim() || "No comments",
+        };
+
+        btn.textContent = "Submitting...";
+        btn.disabled = true;
+
+        // Replace with your Google Apps Script Web App URL
+        const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+
+        try {
+          if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
+            await new Promise((r) => setTimeout(r, 900));
+            console.log("Survey data (demo):", data);
+          } else {
+            const fd = new FormData();
+            Object.entries(data).forEach(([k, v]) => fd.append(k, v));
+            await fetch(SCRIPT_URL, {
+              method: "POST",
+              body: fd,
+              mode: "no-cors",
+            });
+          }
+          document.getElementById("successOverlay").classList.add("show");
+        } catch (err) {
+          statusMsg.style.display = "block";
+          statusMsg.textContent = "Something went wrong. Please try again.";
+          btn.textContent = "Submit Feedback";
+          btn.disabled = false;
+        }
+      }
+    </script>
+  </body>
+</html>

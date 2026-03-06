@@ -1,0 +1,1208 @@
+/* WATCHO Survey - from comp.html */
+.watcho-survey {
+  --red: #c41e3a;
+  --red-dark: #a01830;
+  --red-light: #f5e6e9;
+  --navy: #1a1a2e;
+  --charcoal: #333333;
+  --mid-grey: #666666;
+  --light-grey: #999999;
+  --border: #e0e0e0;
+  --bg: #ffffff;
+  --bg-soft: #f8f8f8;
+  --bg-warm: #fdf9f9;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--bg);
+  color: var(--charcoal);
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.watcho-survey *,
+.watcho-survey *::before,
+.watcho-survey *::after {
+  box-sizing: border-box;
+}
+
+.watcho-survey .topbar {
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  padding: 9px 24px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  font-weight: 300;
+}
+
+.watcho-survey .header {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.watcho-survey .logo-name {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.watcho-survey .logo-tagline {
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mid-grey);
+  margin-top: 3px;
+}
+
+.watcho-survey .header-pill {
+  background: var(--red-light);
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.watcho-survey .header-pill::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: var(--red);
+  border-radius: 50%;
+  animation: watcho-blink 1.5s infinite;
+}
+
+@keyframes watcho-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.watcho-survey .hero {
+  background: var(--bg-warm);
+  border-bottom: 3px solid var(--red);
+  padding: 40px 40px 36px;
+  text-align: center;
+  animation: watcho-fadeDown 0.6s ease both;
+}
+
+.watcho-survey .hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--red);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.watcho-survey .hero-eyebrow::before,
+.watcho-survey .hero-eyebrow::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--red);
+  opacity: 0.5;
+}
+
+.watcho-survey .hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.22;
+  margin-bottom: 12px;
+}
+
+.watcho-survey .hero h1 em {
+  font-style: italic;
+  color: var(--red);
+}
+
+.watcho-survey .hero-sub {
+  font-size: 14px;
+  color: var(--mid-grey);
+  font-weight: 300;
+  max-width: 480px;
+  margin: 0 auto 24px;
+  line-height: 1.5;
+}
+
+.watcho-survey .trust-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.watcho-survey .trust-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--mid-grey);
+}
+
+.watcho-survey .trust-icon {
+  width: 14px;
+  height: 14px;
+  background: var(--red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.watcho-survey .container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Two-column layout: product left, questions right (desktop); stacked (mobile) */
+.watcho-survey .survey-layout {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+}
+
+.watcho-survey .survey-product-panel {
+  flex: 0 0 auto;
+  padding: 24px 20px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.watcho-survey .survey-product-image-wrap {
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto 20px;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+}
+
+.watcho-survey .survey-product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.watcho-survey .survey-product-details {
+  text-align: center;
+}
+
+.watcho-survey .survey-product-brand {
+  font-family: "Playfair Display", serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.watcho-survey .survey-product-name {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.watcho-survey .survey-product-meta {
+  font-size: 13px;
+  color: var(--mid-grey);
+  margin-bottom: 10px;
+}
+
+.watcho-survey .survey-product-order {
+  font-size: 12px;
+  color: var(--light-grey);
+  margin-bottom: 10px;
+}
+
+.watcho-survey .survey-form-panel {
+  flex: 1;
+  min-width: 0;
+}
+
+.watcho-survey .survey-form-panel .progress-wrap {
+  padding: 0 0 24px;
+}
+
+.watcho-survey .survey-form-panel .survey-wrap {
+  padding: 0 0 40px;
+  max-width: 640px;
+}
+
+@media (min-width: 768px) {
+  .watcho-survey .survey-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 48px;
+    padding: 32px 32px 60px;
+  }
+
+  .watcho-survey .survey-product-panel {
+    position: sticky;
+    top: 88px;
+    flex: 0 0 320px;
+    padding: 28px 24px;
+    text-align: left;
+  }
+
+  .watcho-survey .survey-product-image-wrap {
+    max-width: 100%;
+    margin: 0 0 20px;
+  }
+
+  .watcho-survey .survey-product-details {
+    text-align: left;
+  }
+}
+
+.watcho-survey .order-wrap {
+  padding: 40px 24px 0;
+  animation: watcho-fadeUp 0.6s 0.1s ease both;
+}
+
+.watcho-survey .order-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--red);
+  border-radius: 4px;
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.watcho-survey .order-img {
+  width: 54px;
+  height: 54px;
+  background: var(--bg-soft);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.watcho-survey .order-info { flex: 1; min-width: 0; }
+
+.watcho-survey .order-tag {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.watcho-survey .order-name {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+
+.watcho-survey .order-meta {
+  font-size: 12px;
+  color: var(--light-grey);
+}
+
+.watcho-survey .delivered-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.watcho-survey .progress-wrap { padding: 32px 24px 0; }
+
+.watcho-survey .progress-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.watcho-survey .progress-lbl {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid-grey);
+  font-weight: 700;
+}
+
+.watcho-survey .progress-count {
+  font-size: 12px;
+  color: var(--red);
+  font-weight: 700;
+}
+
+.watcho-survey .progress-track {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.watcho-survey .progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--red-dark), var(--red));
+  width: 0%;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+
+.watcho-survey .survey-wrap { padding: 40px 24px 80px; }
+
+.watcho-survey .q-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 36px 40px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.2s;
+}
+
+.watcho-survey .q-card.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.watcho-survey .q-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.09);
+}
+
+.watcho-survey .q-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.watcho-survey .q-num {
+  background: var(--red);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.watcho-survey .q-text { flex: 1; }
+
+.watcho-survey .q-label {
+  font-family: "Playfair Display", serif;
+  font-size: 19px;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.watcho-survey .q-required {
+  display: inline-block;
+  margin-left: 8px;
+  font-family: "Lato", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--red);
+  vertical-align: middle;
+}
+
+.watcho-survey .q-optional {
+  display: inline-block;
+  margin-left: 8px;
+  font-family: "Lato", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--light-grey);
+  vertical-align: middle;
+}
+
+.watcho-survey .q-hint {
+  font-size: 12px;
+  color: var(--light-grey);
+}
+
+.watcho-survey .stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.watcho-survey .star {
+  cursor: pointer;
+  padding: 6px;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  background: none;
+  border: none;
+}
+
+.watcho-survey .star svg {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+.watcho-survey .star svg path {
+  fill: #e5e5e5;
+  stroke: #e5e5e5;
+  transition: fill 0.15s, stroke 0.15s;
+}
+
+.watcho-survey .star:hover {
+  transform: scale(1.22);
+  filter: drop-shadow(0 2px 6px rgba(245, 166, 35, 0.35));
+}
+
+.watcho-survey .star:active {
+  transform: scale(1.08);
+}
+
+.watcho-survey .star.active svg path,
+.watcho-survey .star.hovered svg path {
+  fill: #f5a623;
+  stroke: #f5a623;
+}
+
+.watcho-survey .star.active {
+  transform: scale(1.06);
+  filter: drop-shadow(0 1px 4px rgba(245, 166, 35, 0.25));
+}
+
+.watcho-survey .star-label {
+  margin-left: 10px;
+  font-size: 13px;
+  color: var(--mid-grey);
+  font-style: italic;
+  min-width: 90px;
+}
+
+.watcho-survey .pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.watcho-survey .pill {
+  padding: 10px 20px;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #fff;
+  user-select: none;
+  font-family: inherit;
+}
+
+.watcho-survey .pill:hover {
+  border-color: var(--red);
+  color: var(--red);
+  background: var(--red-light);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(196, 30, 58, 0.12);
+}
+
+.watcho-survey .pill:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.watcho-survey .pill.selected {
+  border-color: var(--red);
+  color: var(--red);
+  background: var(--red-light);
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(196, 30, 58, 0.15);
+}
+
+.watcho-survey .pill.selected::after { content: " ✓"; }
+
+.watcho-survey .issue-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.watcho-survey .issue-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--charcoal);
+}
+
+.watcho-survey .issue-option input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--red);
+  flex-shrink: 0;
+}
+
+.watcho-survey .contact-optin-card {
+  background: var(--bg-soft);
+}
+
+.watcho-survey .contact-optin {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--charcoal);
+}
+
+.watcho-survey .contact-optin input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--red);
+  flex-shrink: 0;
+}
+
+.watcho-survey .contact-email-wrap {
+  margin-top: 12px;
+}
+
+.watcho-survey .survey-input {
+  width: 100%;
+  max-width: 320px;
+  padding: 10px 14px;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 3px;
+  background: var(--bg);
+}
+
+.watcho-survey .survey-input:focus {
+  outline: none;
+  border-color: var(--red);
+  box-shadow: 0 0 0 2px rgba(196, 30, 58, 0.08);
+}
+
+.watcho-survey .survey-input.survey-input--error {
+  border-color: var(--red);
+  background: #fefafa;
+}
+
+.watcho-survey .contact-email-error {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: var(--red);
+  font-weight: 500;
+}
+
+.watcho-survey .nps-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.watcho-survey .nps-lbl {
+  font-size: 11px;
+  color: var(--light-grey);
+  letter-spacing: 0.05em;
+}
+
+.watcho-survey .nps-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.watcho-survey .nps-btn {
+  width: 48px;
+  height: 48px;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--charcoal);
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.watcho-survey .nps-btn:hover {
+  border-color: var(--red);
+  color: var(--red);
+  background: var(--red-light);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(196, 30, 58, 0.18);
+}
+
+.watcho-survey .nps-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(196, 30, 58, 0.12);
+}
+
+.watcho-survey .nps-btn.selected {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(196, 30, 58, 0.3);
+}
+
+.watcho-survey .survey-textarea {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: 3px;
+  padding: 14px 18px;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  color: var(--charcoal);
+  resize: vertical;
+  min-height: 110px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: var(--bg-soft);
+  line-height: 1.7;
+}
+
+.watcho-survey .survey-textarea::placeholder { color: #bbbbbb; }
+
+.watcho-survey .survey-textarea:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.08);
+  background: #fff;
+}
+
+.watcho-survey .submit-card {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 26px 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.watcho-survey .submit-note {
+  font-size: 12px;
+  color: var(--light-grey);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.watcho-survey .submit-btn {
+  background: var(--red);
+  color: #fff;
+  border: none;
+  padding: 14px 40px;
+  font-family: "Lato", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.watcho-survey .submit-btn:hover {
+  background: var(--red-dark);
+  transform: translateY(-1px);
+}
+
+.watcho-survey .submit-btn:active { transform: none; }
+
+.watcho-survey .submit-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.watcho-survey .submit-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.watcho-survey .submit-loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  background: rgba(26, 26, 46, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  animation: watcho-fadeIn 0.3s ease;
+}
+
+.watcho-survey .submit-loading-text {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+
+.watcho-survey .status-msg {
+  text-align: center;
+  font-size: 13px;
+  color: var(--red);
+  margin-top: 12px;
+}
+
+.watcho-survey .black-strip {
+  height: 6px;
+  background: #000;
+  width: 100%;
+}
+
+.watcho-survey .footer {
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding: 32px 24px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.watcho-survey .footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+@media (min-width: 600px) {
+  .watcho-survey .footer-inner {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 48px;
+    text-align: left;
+  }
+}
+
+.watcho-survey .footer-visit {
+  flex: 1;
+}
+
+.watcho-survey .footer-heading {
+  margin: 0 0 8px;
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+
+.watcho-survey .footer-store-name {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.watcho-survey .footer-address {
+  margin: 0 0 12px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.watcho-survey .footer-directions {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--red-light);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: color 0.2s;
+}
+
+.watcho-survey .footer-directions:hover {
+  color: #fff;
+}
+
+.watcho-survey .footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+@media (min-width: 600px) {
+  .watcho-survey .footer-contact {
+    align-items: flex-start;
+  }
+}
+
+.watcho-survey .footer-phone,
+.watcho-survey .footer-chat {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.watcho-survey .footer-phone:hover,
+.watcho-survey .footer-chat:hover {
+  color: #fff;
+}
+
+.watcho-survey .footer-phone svg,
+.watcho-survey .footer-chat svg {
+  flex-shrink: 0;
+  color: var(--red-light);
+}
+
+.watcho-survey .footer strong { color: #fff; }
+
+.watcho-survey .success-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 46, 0.9);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  display: none;
+}
+
+.watcho-survey .success-overlay.show {
+  display: flex;
+  animation: watcho-fadeIn 0.4s ease;
+}
+
+.watcho-survey .success-box {
+  position: relative;
+  background: #fff;
+  border-radius: 6px;
+  padding: 52px 44px;
+  text-align: center;
+  max-width: 460px;
+  width: 100%;
+  animation: watcho-scaleIn 0.4s 0.1s ease both;
+}
+
+.watcho-survey .success-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: var(--mid-grey);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, background 0.2s;
+}
+
+.watcho-survey .success-close:hover {
+  color: var(--navy);
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.watcho-survey .success-icon {
+  width: 64px;
+  height: 64px;
+  background: #0d7d4d;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 22px;
+  font-size: 26px;
+  color: #fff;
+}
+
+.watcho-survey .discount-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.watcho-survey .discount-copy-btn {
+  padding: 10px 18px;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--red);
+  background: #fff;
+  border: 1.5px solid var(--red);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.watcho-survey .discount-copy-btn:hover {
+  background: var(--red-light);
+  color: var(--red);
+}
+
+.watcho-survey .discount-copy-btn:active {
+  transform: scale(0.98);
+}
+
+.watcho-survey .success-title {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.watcho-survey .success-divider {
+  width: 44px;
+  height: 2px;
+  background: var(--red);
+  margin: 18px auto;
+  border-radius: 1px;
+}
+
+.watcho-survey .success-msg {
+  font-size: 14px;
+  color: var(--mid-grey);
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+.watcho-survey .discount-box {
+  background: var(--red-light);
+  border: 1.5px dashed var(--red);
+  border-radius: 4px;
+  padding: 14px 24px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--red);
+  letter-spacing: 0.15em;
+}
+
+.watcho-survey .discount-note {
+  font-size: 12px;
+  color: var(--light-grey);
+}
+
+/* Error overlay (server / network failure) */
+.watcho-survey .error-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 46, 0.92);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  display: none;
+}
+
+.watcho-survey .error-overlay.show {
+  display: flex;
+  animation: watcho-fadeIn 0.35s ease;
+}
+
+.watcho-survey .error-box {
+  position: relative;
+  background: #fff;
+  border-radius: 6px;
+  padding: 48px 44px;
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+  animation: watcho-scaleIn 0.4s 0.08s ease both;
+  border: 1px solid rgba(196, 30, 58, 0.15);
+}
+
+.watcho-survey .error-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  background: transparent;
+  color: var(--mid-grey);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, background 0.2s;
+}
+
+.watcho-survey .error-close:hover {
+  color: var(--navy);
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.watcho-survey .error-icon {
+  width: 64px;
+  height: 64px;
+  background: #fef2f2;
+  border: 2px solid var(--red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 28px;
+  color: var(--red);
+  animation: watcho-errorPulse 1.2s ease-in-out infinite;
+}
+
+.watcho-survey .error-title {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.watcho-survey .error-msg {
+  font-size: 14px;
+  color: var(--mid-grey);
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.watcho-survey .error-retry-btn {
+  padding: 12px 28px;
+  font-family: "Lato", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--red);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.watcho-survey .error-retry-btn:hover {
+  background: var(--red-dark);
+  transform: translateY(-1px);
+}
+
+.watcho-survey .error-retry-btn:active {
+  transform: translateY(0);
+}
+
+@keyframes watcho-fadeDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes watcho-fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes watcho-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes watcho-scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes watcho-errorPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+@media (max-width: 600px) {
+  .watcho-survey .header { padding: 0 20px; }
+  .watcho-survey .hero { padding: 20px 20px 18px; }
+  .watcho-survey .trust-row { gap: 12px; }
+  .watcho-survey .order-card { flex-wrap: wrap; }
+  .watcho-survey .q-card { padding: 28px 22px; }
+  .watcho-survey .nps-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+  }
+  .watcho-survey .submit-card { flex-direction: column; }
+}
